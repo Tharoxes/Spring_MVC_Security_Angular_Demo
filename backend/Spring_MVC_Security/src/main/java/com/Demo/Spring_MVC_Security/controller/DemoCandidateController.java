@@ -26,6 +26,11 @@ public class DemoCandidateController {
 		this.candidateService = candidateService;
 	}
 	
+	@GetMapping("/")
+	public String getHome() {
+		return "home";
+	}
+	
 	@GetMapping("/candidates")
 	public List<Candidate> getUsers(){
 		return candidateService.findAll();
