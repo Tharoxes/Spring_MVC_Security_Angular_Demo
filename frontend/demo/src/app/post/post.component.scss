@@ -1,0 +1,362 @@
+// body {
+//     margin: 0;
+//     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+//       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+//       sans-serif;
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+//     background-color: rgb(22, 20, 24);
+//     color: #eee;
+//     user-select: none;
+//   }
+  
+//   code {
+//     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+//       monospace;
+//   }
+  
+//   .nft{
+//     user-select:none;
+//     max-width: 300px;
+//     margin: 5rem auto;
+//     border: 1px solid #ffffff22;
+//     background-color: #282c34;
+//     background: linear-gradient(0deg, rgba(40,44,52,1) 0%, rgba(17,0,32,.5) 100%);
+//     box-shadow: 0 7px 20px 5px #00000088;
+//     border-radius: .7rem;
+//     backdrop-filter: blur(7px);
+//     -webkit-backdrop-filter: blur(7px);
+//     overflow: hidden;
+//     transition: .5s all;
+//     hr{
+//       width: 100%;
+//       border: none;
+//       border-bottom: 1px solid #88888855;
+//       margin-top: 0;
+//     }
+//     ins{
+//       text-decoration: none;
+//     }
+//     .main{
+//       display: flex;
+//       flex-direction: column;
+//       width: 90%;
+//       padding: 1rem;
+//       .tokenImage{
+//         border-radius: .5rem;
+//         max-width: 100%;
+//         height: 250px;
+//         object-fit: cover;
+//       }
+//       .description{
+//         margin: .5rem 0;
+//         color: #a89ec9;
+//       }
+//       .tokenInfo{
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         .price{
+//           display: flex;
+//           align-items: center;
+//           color: #ee83e5;
+//           font-weight: 700;
+//           ins{
+//             margin-left: -.3rem;
+//             margin-right: .5rem;
+//           }
+//         }
+//         .duration{
+//           display: flex;
+//           align-items: center;
+//           color: #a89ec9;
+//           margin-right: .2rem;
+//           ins{
+//             margin: .5rem;
+//             margin-bottom: .4rem;
+//           }
+//         }
+//       }
+//       .creator{
+//         display: flex;
+//         align-items: center;
+//         margin-top: .2rem;
+//         margin-bottom: -.3rem;
+//         ins{
+//           color: #a89ec9;
+//           text-decoration: none;
+//         }
+//         .wrapper{
+//           display: flex;
+//           align-items: center;
+//           border: 1px solid #ffffff22;
+//           padding: .3rem;
+//           margin: 0;
+//           margin-right: .5rem;
+//           border-radius: 100%;
+//           box-shadow: inset 0 0 0 4px #000000aa;
+//           img{
+//             border-radius: 100%;
+//             border: 1px solid #ffffff22;
+//             width: 2rem;
+//             height: 2rem;
+//             object-fit: cover;
+//             margin: 0;
+//           }
+//         }
+//       }
+//     }
+//     ::before{
+//       position: fixed;
+//       content: "";
+//       box-shadow: 0 0 100px 40px #ffffff08;
+//       top: -10%;
+//       left: -100%;
+//       transform: rotate(-45deg);
+//       height: 60rem;
+//       transition: .7s all;
+//     }
+//     &:hover{
+//       border: 1px solid #ffffff44;
+//       box-shadow: 0 7px 50px 10px #000000aa;
+//       transform: scale(1.015);
+//       filter: brightness(1.3);
+//       ::before{
+//         filter: brightness(.5);
+//         top: -100%;
+//         left: 200%;
+//       }
+//     }
+//   }
+  
+//   .bg{
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     h1{
+//       font-size: 20rem;
+//       filter: opacity(0.5);
+//     }
+//   }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+*, button, input{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+  
+  font-family: 'Roboto', sans-serif;
+}
+
+:root{
+ --bg-shape-color:linear-gradient(120deg,  #343A4F, #0F1620);
+ --lightblue: #3D9DEA;
+ --darkblue: #4A4EEE;
+ --text-color: #D5E1EF;
+}
+
+html,body{
+  width: 100%; 
+  min-height: 100vh;
+  background-image: linear-gradient(90deg, #414850, #131720);
+  color: var(--text-color);
+}
+body{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px;
+}
+.wrapper{
+  width:350px;
+  border-radius: 40px;
+  background-image: var(--bg-shape-color);
+  overflow: hidden;
+}
+.overviewInfo, .productSpecifications {
+  padding: 24px;
+}
+.overviewInfo{
+  background-image:  linear-gradient(176deg, #3D9DEA,  #4A4EEE);
+}
+.actions{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  
+  .cartbutton{
+    position:relative;
+  }
+  .cartbutton::after {
+      content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-image: linear-gradient(90deg, #489be2, #0f629c);
+    border-radius: 50%;
+    position: absolute;
+    top: 11px;
+    right: 8px;
+}
+  
+  .cartbutton svg {
+    color: #ababab73;
+}
+  .backbutton, .cartbutton{
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+.neurobutton{
+  background-image: var(--bg-shape-color);
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 3px 4px 5px 0px rgba(197, 197, 197, 0.1), inset 3px 6px 6px 5px rgba(78, 77, 77, 0.1), -2px -2px 8px 2px rgba(255,255,255,0.1), 2px 2px 6px 3px rgba(0,0,0,0.4);
+}
+
+.productinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 50px;
+}
+
+.productImage {
+    position: absolute;
+  
+    width: 321px;
+    height: auto;
+    transform: rotate(-90deg) translate(-56px, 66px);
+  
+ // animation: updowncontroller infinite 3s alternate;
+img{ width: 100%; height: auto}
+  transition: ease 2s all ;
+  &:hover{
+      transition: ease 2s all ;
+    animation: none;
+    transform: rotate(-70deg) translate( 10px, 66px);
+  }
+}
+ 
+
+h1{
+  font-family: 'Michroma', sans-serif;
+}
+.grouptext{
+h3 {
+    letter-spacing: 3.2px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+  p {
+    font-size: 12px;
+    opacity: 0.8;
+  } 
+  
+}
+
+
+/* product specifications */
+.featureIcon{
+  width: 40px;
+  height: 40px;
+  background-image: var(--bg-shape-color);
+  border-radius: 8px; 
+    margin-right: 16px;
+}
+.productSpecifications{
+
+  h1{
+    margin-top: 10px; 
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+  
+  p {
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 1.5;
+}
+  
+  .productFeatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px; 
+    grid-row-gap: 16px;
+    .feature{ display:flex;}
+  }
+}
+
+
+
+.checkoutButton {
+    display: flex;
+    width: 100%;
+    background-image: var(--bg-shape-color);
+    border-radius: 12px;
+    overflow: hidden;
+        box-shadow: -2px -2px 2px 0px rgba(80, 80, 80, 0.1), 2px 2px 3px 0px rgba(12, 12, 12, 0.3), inset 0px 0px 0px 2px rgba(80, 80, 80, 0.2);
+    margin-top: 30px;
+    padding: 14px;
+  
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priceTag {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+}
+
+.priceTag span {
+    color: #488dc7;
+    font-size: 20px;
+}
+
+
+/* checkout button*/
+button.preorder {
+    outline: 0;
+    border: 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: linear-gradient(85deg, #61c7ef, #4833fb);
+    color: white;
+}
+
+.preorder p {
+    padding: 8px 17px;
+    border-right: 1px solid rgba(0,0,0,0.4);
+}
+
+.buttonaction {
+    border-left: 1px solid rgba(255,255,255,.2);
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+
+/* animation */
+
+@keyframes updowncontroller{
+  0%  {
+    transform: rotate(-90deg) translate(-56px, 66px);}
+  80%, 100%{
+    transform: rotate(-70deg) translate( 10px, 66px);}
+}

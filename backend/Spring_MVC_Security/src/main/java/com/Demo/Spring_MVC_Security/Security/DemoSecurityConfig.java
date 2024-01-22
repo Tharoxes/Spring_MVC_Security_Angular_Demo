@@ -42,13 +42,17 @@ public class DemoSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		http.authorizeHttpRequests(configurer ->
 				configurer
+				.requestMatchers(HttpMethod.GET, "/candidates").hasRole("SOLDIER")
+				.requestMatchers(HttpMethod.GET, "/candidates/**").hasRole("SOLDIER")
+				.requestMatchers(HttpMethod.POST, "/candidates").hasRole("LIEUTENANT")
+				.requestMatchers(HttpMethod.PUT, "/candidates").hasRole("LIEUTENANT")
+				.requestMatchers(HttpMethod.DELETE, "/candidates").hasRole("GENERAL")
+				.requestMatchers(new AntPathRequestMatcher("/login")).permitAll()
 				.requestMatchers(new AntPathRequestMatcher("/")).permitAll()
-				.requestMatchers(HttpMethod.GET, "/candidates").hasRole("RECRUIT")
-				.requestMatchers(HttpMethod.GET, "/candidates/**").hasRole("RECRUIT")
-				.requestMatchers(HttpMethod.POST, "/candidates").hasRole("SOLDIER")
-				.requestMatchers(HttpMethod.PUT, "/candidates").hasRole("SOLDIER")
-				.requestMatchers(HttpMethod.DELETE, "/candidates").hasRole("LIEUTENANT")
 				);
+		
+//		http.formLogin(configurer -> 
+//				configurer.loginPage("/login"));
 		
 		http.httpBasic(Customizer.withDefaults());
 		

@@ -1,13 +1,12 @@
 package com.Demo.Spring_MVC_Security;
 
-import java.util.stream.Stream;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.Demo.Spring_MVC_Security.Entity.Candidate;
 import com.Demo.Spring_MVC_Security.Repository.CandidateRepository;
 
 @SpringBootApplication
@@ -29,9 +28,11 @@ public class SpringMvcSecurityApplication {
 //	}
 	
 	@Bean
-	CommandLineRunner init (CandidateRepository candidateRepository) {
+	CommandLineRunner init (CandidateRepository candidateRepository, UserDetailsService service) {
 		return args -> {
 			candidateRepository.findAll().forEach(System.out::println);
+			UserDetails user = service.loadUserByUsername("james");
+			System.out.println(user.getPassword());
 		};
 	}
 

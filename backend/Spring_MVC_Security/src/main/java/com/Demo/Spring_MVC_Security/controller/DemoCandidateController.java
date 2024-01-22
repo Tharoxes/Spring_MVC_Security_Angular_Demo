@@ -3,6 +3,8 @@ package com.Demo.Spring_MVC_Security.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Demo.Spring_MVC_Security.Entity.Candidate;
@@ -20,6 +23,7 @@ import com.Demo.Spring_MVC_Security.Service.CandidateService;
 public class DemoCandidateController {
 	
 	private CandidateService candidateService;
+	private UserDetailsService userDetailsService;
 	
 	@Autowired
 	public DemoCandidateController(CandidateService candidateService) {
@@ -31,8 +35,14 @@ public class DemoCandidateController {
 		return "home";
 	}
 	
+    @RequestMapping("/login")
+    public boolean login(@RequestBody User user) {
+        return
+          user.getUsername().equals("user") && user.getPassword().equals("password");
+    }
+	
 	@GetMapping("/candidates")
-	public List<Candidate> getUsers(){
+	public List<Candidate> getCandidates(){
 		return candidateService.findAll();
 	}
 	
